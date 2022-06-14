@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h1>Liste des personnes</h1>
+    {% if personnes %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"> </th>
+                <th scope="col">Numéro :</th>
+                <th scope="col">Nom :</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personne in personnes %}
+            <tr>
+            <th scope="row"> </th>
+            <td><a href= "{% url 'personne-detail' personne.id %}">
+                {{ personne.id }}</a> </td>
+                <td>{{ personne.nom}}</td>
+            </tr>
+        {% endfor %}
+        {% endif %}
+{% endblock %}
+
